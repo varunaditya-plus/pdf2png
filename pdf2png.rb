@@ -1,8 +1,8 @@
 class Pdf2png < Formula
   desc "A quick script to convert PDFs to PNGs"
   homepage "https://github.com/varunaditya-plus/pdf2png"
-  url "https://github.com/varunaditya-plus/pdf2png/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "3a7503c3141aaec617532dd8b970554916ab047fd5b1b44600714c5676a9de4e"
+  url "https://github.com/varunaditya-plus/pdf2png/archive/refs/tags/v0.2.0.tar.gz"
+  sha256 "bef5b072e2888cafc21e1885e61bbb3c13ca34597bdfcade90a139cd88d02e08"
   license "MIT"
 
   depends_on "python@3.12"
