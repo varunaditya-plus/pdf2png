@@ -1,17 +1,20 @@
 class Pdf2png < Formula
-    desc "A quick script to convert pdfs to pngs"
-    homepage "https://github.com/thevarunaditya/pdf2png"
-    url "https://github.com/thevarunaditya/pdf2png/archive/refs/tags/0.1.0.tar.gz"
-    sha256 "ded7f214efc1c6cefb370d7e827e6bc9cb4f9e492f6c645d98e62fd15e055700"
-    license "MIT"
-  
-    def install
-      bin.install "pdf2png.sh" => "pdf2png"
-      libexec.install "app.py"
-    end
-  
-    test do
-      system "#{bin}/pdf2png"
-    end
+  desc "A quick script to convert PDFs to PNGs"
+  homepage "https://github.com/varunaditya-plus/pdf2png"
+  url "https://github.com/varunaditya-plus/pdf2png/archive/refs/tags/v0.1.0.tar.gz"
+  sha256 "3a7503c3141aaec617532dd8b970554916ab047fd5b1b44600714c5676a9de4e"
+  license "MIT"
+
+  depends_on "python@3.12"
+  depends_on "poppler"
+
+  include Language::Python::Virtualenv
+
+  def install
+    virtualenv_install_with_resources
   end
-  
+
+  test do
+    system "#{bin}/pdf2png", "--help"
+  end
+end
