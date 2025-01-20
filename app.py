@@ -1,23 +1,20 @@
 import sys
-import os
 from pdf2image import convert_from_path
 
-def pdf_to_png(filepath):
-    images = convert_from_path(filepath)
-    for page_num, image in enumerate(images):
-        image.save(f"{filepath}_{page_num}.png")
+def main():
+    if len(sys.argv) < 2:
+        print("Usage: pdf2png <pdf_file>")
+        sys.exit(1)
+    
+    pdf_file = sys.argv[1]
+    try:
+        images = convert_from_path(pdf_file)
+        for i, image in enumerate(images):
+            image.save(f"output_page_{i + 1}.png", "PNG")
+        print(f"Converted {len(images)} pages from {pdf_file} to PNG.")
+    except Exception as e:
+        print(f"Error: {e}")
+        sys.exit(1)
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Usage: python app.py <filepath>")
-        sys.exit(1)
-    filepath = sys.argv[1]
-    if not filepath.endswith(".pdf"):
-        print("Please provide a .pdf file")
-        sys.exit(1)
-    if not os.path.exists(filepath):
-        print("File does not exist")
-        sys.exit(1)
-    pdf_to_png(filepath)
-    print("PDF converted to PNG")
-    sys.exit(0)
+    main()
