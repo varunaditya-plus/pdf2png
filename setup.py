@@ -9,12 +9,13 @@ setup(
     license="MIT",
     packages=find_packages(),
     include_package_data=True,
+    py_modules=["pdf2png"],
     install_requires=[
-        "pdf2image",  # Ensures pdf2image is installed as a dependency
+        "pdf2image",
     ],
     entry_points={
         "console_scripts": [
-            "pdf2png=app:main",  # Entry point for the script
+            "pdf2png=app:main",
         ]
     },
     python_requires=">=3.12",
